@@ -18,7 +18,7 @@ Please send any questions you might have about the code and/or the algorithm to 
 
 
 ## Citing
-If you find HetIG-PreDiG useful for your research, please consider citing us:
+If you find this code useful for your research, please consider citing us:
 ```
 @article{Jagodnik2023,
   title     = {HetIG-PreDiG: A Heterogeneous Integrated Graph Model for Predicting Human Disease Genes Based on Gene Expression.},
