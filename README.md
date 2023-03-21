@@ -3,9 +3,9 @@
 ## Overview
 Bankruptcy prediction using Twitter data
 
-### Motivation
+## Motivation
 
-### Results
+## Results
 
 ## Running the code
 
