@@ -13,7 +13,7 @@ Bankruptcy prediction using Twitter data
 
 `CollectTweets(NewBIUBankruptcy)` -- collect tweets that mention company name 30 days before and 30 days after the finantial event (bankruptcy or stock crash)
 
-`Low_stocks.r` -- find the date when the stock price crashed in terms of (`Adj Close`$[t])$/(`Adj Close`$[t+1]) - 1$
+`Low_stocks.r` -- find the date when the stock price crashed in terms of $Min${(`Adj Close`$[t])$/(`Adj Close`$[t+1]) - 1$}
 
 
 ## Miscellaneous
