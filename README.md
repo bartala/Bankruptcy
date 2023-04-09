@@ -15,6 +15,7 @@ Bankruptcy prediction using Twitter data
 
 `Low_stocks.r` -- find the date when the stock price crashed in terms of $Min${(`Adj Close`$[t])$/(`Adj Close`$[t+1]) - 1$}
 
+`combine_data.R` -- combine collected Twitter datasets on companies that declared chapter 11 bankruptcy between 2012 to 2022
 
 ## Miscellaneous
 Please send any questions you might have about the code and/or the algorithm to alon.bartal@biu.ac.il.
