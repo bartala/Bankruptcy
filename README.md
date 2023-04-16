@@ -25,7 +25,7 @@ Please send any questions you might have about the code and/or the algorithm to 
 If you find this code useful for your research, please consider citing us:
 ```
 @article{Jagodnik2023,
-  title     = {HetIG-PreDiG: A Heterogeneous Integrated Graph Model for Predicting Human Disease Genes Based on Gene Expression.},
+  title     = {Persistence of collective memory of bankruptcy events declared by U.S. companies.},
   author    = {Jagodnik, Kathleen M. and Bartal, Alon},
   journal   = {},
   volume    = {},
