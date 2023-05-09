@@ -1,4 +1,4 @@
-# Bankruptcy paper
+# Persistence of Collective Memory
 
 ## Overview
 Bankruptcy prediction using Twitter data
