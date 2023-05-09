@@ -2,7 +2,7 @@ library(ggplot2)
 library(sqldf)
 library(readr)
 
-# find the date when the stock price crashed in terms of (Adj Close at time [t])/(Adj Close at time [t-1]) - 1
+# find the date when the stock price crashed in terms of ( `Adj_Close(t)` )/( `Adj_Close(t-1)` ) - 1
 
 PTH = 'Desktop/'
 
