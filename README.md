@@ -27,7 +27,7 @@ Please send any questions you might have about the code and/or the algorithm to 
 If you find this code useful for your research, please consider citing us:
 ```
 @article{Jagodnik2023,
-  title     = {Persistence of collective memory of bankruptcy events declared by U.S. companies.},
+  title     = {Persistence of collective memory about bankruptcy events declared by U.S. companies.},
   author    = {Jagodnik, Kathleen M. and Bartal, Alon},
   journal   = {},
   volume    = {},
