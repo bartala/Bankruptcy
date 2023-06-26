@@ -2,82 +2,45 @@ library(sqldf)
 library(readr)
 library(rentrez)
 
-citations <- read_csv("biotools/citations.csv")
-citations$year<-NULL
-names(citations) <- c("tool_pmid","cited_by_pmcid")
+EMAIL = 'bartala@gmail.com'
+PTH = '/home/bartalab/github/bankruptcy/'
+
+##------ collect missing tool_pubyear data -------------------------------------
+collect_pubmed_publiction_year <- function(pmids, EMAIL, DB = "pubmed"){
+  
+    summary <- entrez_summary(db = DB, id = pmids, email = EMAIL)
+    return(substr(summary$pubdate,0,4))
+    
+}
 
 
-cited <- read_csv("biotools/citations2.csv", col_types = cols(...1 = col_skip()))
-names(cited) <- c("cited_by_pmcid", "cited_by_pubyear")
+#-------------------- load data ------------------------------------------------
 
-cited <- cited[!duplicated(cited$cited_by_pmcid),]
-cited$cited_by_pubyear <- as.numeric(substr(cited$cited_by_pubyear,0,4))
-
-
-x<-merge(citations, cited, on = "cited_by_pmcid", all.x = TRUE)
-x<-x[!is.na(x$cited_by_pubyear),]
-
-df<-sqldf("select tool_pmid, count(cited_by_pmcid) as num_citations, cited_by_pubyear from x group by tool_pmid, cited_by_pubyear")
+id <- "1PYOHKuxBA8cykJyLlSHkRvz45RVl3_cT" # Google Drive file ID to citations
+citations <- read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", id))
 
 
-
-# complete missing publication year for tools
-tools <- read_csv("biotools/tools_db.csv")
-tools[is.na(tools$Year),'Year'] <- as.numeric(substr(tools[is.na(tools$Year),]$Article_Date,7,10))
-tools$tool_pubyear <- tools$Year
-
-tools$tool_pmid <- gsub("\\[|\\]", "", tools$PMID)
-              
+df<-sqldf("select tool_pmid, count(cited_by_pmcid) as num_citations, cited_by_pubyear from citations group by tool_pmid, cited_by_pubyear")
 
 
-# merge
-# df2 <- merge(df, tools[,c('tool_pmid','tool_pubyear')], on='tool_pmid', all.x  = TRUE)
-# df2$Year<-NULL
-# 
-# # complete missing tool_pubyear data
-# i=1
-# for(pmid in unique(df[is.na(df2$tool_pubyear),]$tool_pmid)){
-#   
-#   print(i)
-#   i=i+1
-#   summary <- entrez_summary(db = "pubmed", id = pmid, email = 'yaelshvili@gmail.com')
-#   
-#   # Extract the publication year from the summary
-#   df2[df2$tool_pmid == pmid,'tool_pubyear']<-substr(summary$pubdate,0,4)
-#   
-# }
+# complete the publication year of the original (cited) paper
+id <- '1Ld6ZedLnxSYO8jvq8ZIA9GcbQEvuB6Dd' # Google Drive file ID to citations
+tools_DB <- read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", id))
+
+# create updated citation list
+df <- merge(df, tools_DB, by.x = 'tool_pmid', by.y ="meta.PMID", all.x = TRUE)
+colnames(df)[colnames(df) == "meta.Published_On"] <- "tool_pubyear"
 
 
-df2$relative_age <- as.numeric(df2$cited_by_pubyear) - as.numeric(df2$tool_pubyear) -1
+# create relative age field
+df$relative_age <- as.numeric(df$cited_by_pubyear) - as.numeric(df$tool_pubyear)
 
-# remove impossible case of papers citing an original paper before it was published
-df2<-df2[df2$relative_age>0,]
-df2<-df2[!is.na(df2$tool_pmid),]
+# keep only cases of papers citing an original paper after it was published
+df<-df[df$relative_age>=0,]
 
-
-
-
-#------------ load tools -------------------
-
-tools_2000_2019_2 <- data.frame(read_csv("biotools/drive-download-20230625T123856Z-001/tools_2000_2019_2.csv"))
-tools_2000_2019_3 <- data.frame(read_csv("biotools/drive-download-20230625T123856Z-001/tools_2000_2019_3.csv"))
-
-tools_2000_2019_2<-tools_2000_2019_2[,c(-1,-2)]
-tools_2000_2019_3<-tools_2000_2019_3[,c(-1,-2,-3, -63)]
-
-tools_DB <- rbind(tools_2000_2019_2,tools_2000_2019_3)
-tools_DB <- tools_DB[!duplicated(tools_DB$meta.PMID),]
-
-table(tools_DB$url_status)
-
-
-
-tools_DB_url <- merge(tools_DB, df2, by.y = 'tool_pmid', by.x ="meta.PMID")
-
-
-# ------ plot in Fig.2 ----------------------------------------------------------------------
-x_good <- sqldf("select relative_age, avg(num_citations) as avg from tools_DB_url where url_status < 400 or url_status > 900 group by relative_age")
-x_bad <- sqldf("select relative_age, avg(num_citations) as avg from tools_DB_url where url_status >= 400 and  url_status < 900  group by relative_age")
+#------ plot in Fig.2 ----------------------------------------------------------------------
+x_good <- sqldf("select relative_age, avg(num_citations) as avg from df where stat = 'Available' group by relative_age")
+x_bad <- sqldf("select relative_age, avg(num_citations) as avg from df where stat = 'Unavailable'  group by relative_age")
 
 
 ggplot(x_good, aes(x = relative_age, y = avg)) +
