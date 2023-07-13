@@ -14,10 +14,6 @@ We fit two bi-exponential models to the tweeting patterns of High, and Low atten
 Additionally, we accurately (F1-score of 0.81) predicted the post-bankruptcy persistence level of public attention on the day of bankruptcy.
 Studying dynamic bankruptcy events reveals varying attention patterns, a novel perspective of collective memory, and how pre-bankruptcy attention shapes company remembrance.
 
-## Motivation
-
-## Results
-
 ## Running the code
 
 `YahooFinance.ipynb` -- download stock values over time.
