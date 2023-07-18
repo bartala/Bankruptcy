@@ -31,19 +31,6 @@ PTH1 = "/path/to/local/directory/"
 
 data <- read_csv(paste0(PTH1,"2012_2022_bankruptcy2.csv"), show_col_types = FALSE)
 
-#------- python code -----------
-# read metadata about companies from Google spreadsheet and write to local file
-import requests
-import pandas as pd
-
-SHEET_ID='1_aQKhRUhpMRHbNdz22ysY8wIdQ-93EJHmk_Vyb04HZE'
-
-r = requests.get(f'https://docs.google.com/spreadsheet/ccc?key={SHEET_ID}&output=csv')
-open('dataset.csv', 'wb').write(r.content)
-df = pd.read_csv('dataset.csv')
-#------- end python code -----------
-
-#------- R code -----------
 metadata <- read_csv('/content/dataset.csv',show_col_types = FALSE)
  
 companies <- unique(data[data$dataset %in% c("before_covid", "covid"),]$company)
@@ -208,7 +195,6 @@ df2 <- sqldf("select company, avg(freq) as avg_freq from tmp where number < 0 gr
 
 """### High persistence memory of companies"""
 
-# Commented out IPython magic to ensure Python compatibility.
 # # Companies with more mentions (tweets) after the announcement than before the announcment
 # # (i.e., they were not forgotten by the public --> High persistence)
  
@@ -671,35 +657,7 @@ ks.test(x, y)
  result$avg_txt_len<-NULL
  result <- merge(result, df, by = 'company', all.x = TRUE)
 
-#------ python code ---------
-# 8) Average tweet sentiment
-%R -o before
-
-# Get the sentiment score of a text vector
-
-from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
-
-analyzer = SentimentIntensityAnalyzer()
-
-sentiment_scores = []
-sentiment_pos = []
-sentiment_neg = []
-sentiment_neu = []
-
-for text in before['text']:
-  scores = analyzer.polarity_scores(text)
-  sentiment_scores.append( scores['compound'] )
-  sentiment_neg.append( scores['neg'] )
-  sentiment_pos.append( scores['pos'] )
-  sentiment_neu.append( scores['neu'] )
-
-before['sentiment'] = sentiment_scores
-before['pos'] = sentiment_pos
-before['neg'] = sentiment_neg
-before['neu'] = sentiment_neu
-
-#---- end python code ---------
-%R -i before
+ write.csv(pastr0(PTH, before.csv))
 
 
 # # 8) Average tweet sentiment
@@ -715,36 +673,8 @@ before['neu'] = sentiment_neu
  result$Private_Public <- tolower(result$Private_Public)
 
 
-"""## Sentiment analysis
-"""
+"""## Sentiment analysis"""
 
-# help function
-
-from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
-
-def dentiment_analyzer(data):
-
-  analyzer = SentimentIntensityAnalyzer()
-
-  sentiment_scores = []
-  sentiment_pos = []
-  sentiment_neg = []
-  sentiment_neu = []
-
-  for text in data['text']:
-    scores = analyzer.polarity_scores(text)
-    sentiment_scores.append( scores['compound'] )
-    sentiment_neg.append( scores['neg'] )
-    sentiment_pos.append( scores['pos'] )
-    sentiment_neu.append( scores['neu'] )
-
-  data['sentiment'] = sentiment_scores
-  data['neg'] = sentiment_neg
-  data['pos'] = sentiment_pos
-  data['neu'] = sentiment_neu
-  return(data)
-
-#------ end python code ------------
 """### Unforgotten compamies: sentiment after announcment $t>0$"""
 
  
@@ -762,15 +692,13 @@ def dentiment_analyzer(data):
  after_unforgot <- after_unforgot[after_unforgot$number >= 0, ]
 
 # 8) Average tweet sentiment
-%R -o after_unforgot
+write.csv(paste0(PTH,"after_unforgot.csv"))
 
 # Get the sentiment score of a text vector
 
 after_unforgot = dentiment_analyzer(after_unforgot)
 
-
-%R -i after_unforgot
-
+after_unforgot <- read_csv('/content/after_unforgot.csv',show_col_types = FALSE)
 
 a_uf <- sqldf("select company, number, avg(sentiment) as avg_sent, avg(pos) as avg_sent_pos, avg(neg) as avg_sent_neg, avg(neu) as avg_sent_neu from after_unforgot group by company, number")
 
@@ -791,15 +719,14 @@ a_uf <- sqldf("select company, number, avg(sentiment) as avg_sent, avg(pos) as a
  after_forgot <- after_forgot[after_forgot$number >= 0, ]
 
 # Average tweet sentiment
- %R -o after_forgot
+write.csv(paste0(PTH,"after_forgot.csv"))
 
 # Get the sentiment score of a text vector
 
 after_forgot = dentiment_analyzer(after_forgot)
 
 
-%R -i after_forgot
-
+after_forgot <- after_forgot
 a_f <- sqldf("select company, number, avg(sentiment) as avg_sent, avg(pos) as avg_sent_pos, avg(neg) as avg_sent_neg, avg(neu) as avg_sent_neu from after_forgot group by company, number")
 
 """### Boxplot of High and Low persistence sentiment
@@ -825,7 +752,6 @@ a_f <- sqldf("select company, number, avg(sentiment) as avg_sent, avg(pos) as av
  
 # # -------------------  Forgotten -----------------------------------------------
  
- 
  before_forgot <- data[data$company %in% forgotten_companies,]
  
  before_forgot$created_at<-as.character(before_forgot$created_at)
@@ -840,10 +766,11 @@ a_f <- sqldf("select company, number, avg(sentiment) as avg_sent, avg(pos) as av
  before_forgot <- before_forgot[before_forgot$number < 0, ]
 
 # Average tweet sentiment
-%R -o before_unforgot
+write.csv(paste0(PTH,'before_unforgot.csv'))
+
 
 # Average tweet sentiment
-%R -o before_forgot
+write.csv(paste0(PTH,'before_forgot.csv'))
 
 # Get the sentiment score of a text vector
 
@@ -853,11 +780,9 @@ before_unforgot = dentiment_analyzer(before_unforgot)
 # Get the sentiment score of a text vector
 before_forgot = dentiment_analyzer(before_forgot)
 
-%R -i before_unforgot
+before_unforgot <- read_csv('/content/before_unforgot.csv',show_col_types = FALSE)
 
-
-%R -i before_forgot
-
+before_forgot <- read_csv('/content/before_forgot.csv',show_col_types = FALSE)
 
 
 # # Low
