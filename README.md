@@ -16,9 +16,11 @@ Studying bankruptcy events via social media coverage reveals varying attention p
 
 ## Running the code
 
-`CollectTweets` -- collect tweets that mention company name 30 days before and 30 days after bankruptcy announcement day
+`CollectTweets` -- collect tweets that mention company name 30 days before and 30 days after bankruptcy announcement day.
 
-`data_analysis_.ipynb` -- analyze mention time series.
+`data_analysis.py` -- analyze mention time series.
+
+`sentiment.py` -- analyze tweet sentiment.
 
 ## Miscellaneous
 Please send any questions you might have about the code and/or the algorithm to alon.bartal@biu.ac.il.
