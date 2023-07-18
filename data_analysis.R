@@ -181,9 +181,6 @@ df2 <- sqldf("select company, avg(freq) as avg_freq from tmp where number < 0 gr
 
  sqldf("select company, sum(freq) as sm, number from tmp where number == -25 group by company, number",method = "name__class")
 
-
- (tmp[tmp$`Company Name` == 'Cumulus Media' & tmp$number == -24 ,'freq'])
-
  df_2 <- merge(df2,df1, by = 'company', all.x = TRUE)
  
  df_2$When.x <- NULL
@@ -334,7 +331,6 @@ df2 <- sqldf("select company, avg(freq) as avg_freq from tmp where number < 0 gr
  summary(power_fit_uf)
 
 # # AIC
-
 
  print(paste0("AIC exp: ", gof(expmodel_uf)$AIC))
  print(paste0("AIC log: ",gof(logmodel_uf)$AIC))
@@ -662,6 +658,7 @@ ks.test(x, y)
 
 # # 8) Average tweet sentiment
 
+ before <- read_csv(paste0(PTH,"before"), show_col_types = FALSE)
  sentiment = sqldf("select company, avg(sentiment) as avg_sentiment,avg(pos) as avg_pos,avg(neg) as avg_neg,avg(neu) as avg_neu from before group by company")
  
  result <- merge(result, sentiment, by = 'company', all.x = TRUE)
@@ -694,9 +691,11 @@ ks.test(x, y)
 # 8) Average tweet sentiment
 write.csv(paste0(PTH,"after_unforgot.csv"))
 
-# Get the sentiment score of a text vector
+# Get the sentiment score of a text vector by calling sentiment_tweets_1() pytohn function in sentiment.py
 
-after_unforgot = dentiment_analyzer(after_unforgot)
+ before <- read_csv(paste0(PTH,"before"), show_col_types = FALSE)
+
+after_unforgot = sentiment_analyzer(after_unforgot)
 
 after_unforgot <- read_csv('/content/after_unforgot.csv',show_col_types = FALSE)
 
@@ -723,7 +722,7 @@ write.csv(paste0(PTH,"after_forgot.csv"))
 
 # Get the sentiment score of a text vector
 
-after_forgot = dentiment_analyzer(after_forgot)
+after_forgot = sentiment_analyzer(after_forgot)
 
 
 after_forgot <- after_forgot
@@ -774,11 +773,11 @@ write.csv(paste0(PTH,'before_forgot.csv'))
 
 # Get the sentiment score of a text vector
 
-before_unforgot = dentiment_analyzer(before_unforgot)
+before_unforgot = sentiment_analyzer(before_unforgot)
 
 #---- before_forgot --------
 # Get the sentiment score of a text vector
-before_forgot = dentiment_analyzer(before_forgot)
+before_forgot = sentiment_analyzer(before_forgot)
 
 before_unforgot <- read_csv('/content/before_unforgot.csv',show_col_types = FALSE)
 
