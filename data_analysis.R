@@ -165,8 +165,8 @@ Plot for all data and companies (before and after announcment)
 ### Compute the average #tweets before announcement AND average #tweets after the buzz fades out $(t \ge 17)$.
 """
 
-# # mentions(t >= 18) > mean(mentions(t<t0)) --> High persistance
-# # mentionds(t > 18) <= mean(mentions(t<t0)) --> Low persistance
+# # mentions(t >= 17) > mean(mentions(t<t0)) --> High persistance
+# # mentionds(t > 17) <= mean(mentions(t<t0)) --> Low persistance
 
 # # average number of tweets before announcement
 df2 <- sqldf("select company, avg(freq) as avg_freq from tmp where number < 0 group by company") # before
@@ -1376,30 +1376,17 @@ write.csv(fig2, file="fig2.csv")
 
  tweets_R = before$text
 
-%R -o tweets_R tweets_R
+write.csv(paste0(PTH, 'tweets_R.csv'))
 
-#------ python code ---------
-import re
-result = [re.sub(r'http\S+', '', x) for x in tweets_R]
-from textblob import TextBlob
+#------ run python sentiment_tweets(tweets_R) code ---------
 
-sentiment = []
-subjectivity = []
-
-for text in result:
-  x = TextBlob(text)
-  sentiment.append( x.sentiment[0] )
-  subjectivity.append( x.sentiment[1] ) # The subjectivity is a float within the range [0.0, 1.0] where 0.0 is very objective and 1.0 is very subjective.
-
-#------ end python code ---------
- send back sentiment to R
- %R -i sentiment sentiment
- %R -i subjectivity subjectivity
+sentiment <- read_csv(paste0(PTH,"sentiment"), show_col_types = FALSE)
+subjectivity <- read_csv(paste0(PTH,"subjectivity"), show_col_types = FALSE)
 
 
 # # list into vector
 sentiment = unlist(sentiment)
- subjectivity = unlist(subjectivity)
+subjectivity = unlist(subjectivity)
 
  before$sentiment <- sentiment
  before$subjectivity <- subjectivity
