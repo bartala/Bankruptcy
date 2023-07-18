@@ -16,7 +16,7 @@ Studying bankruptcy events via social media coverage reveals varying attention p
 
 ## Running the code
 
-`CollectTweets` -- collect tweets that mention company name 30 days before and 30 days after the finantial event (bankruptcy or stock crash)
+`CollectTweets` -- collect tweets that mention company name 30 days before and 30 days after bankruptcy announcement day
 
 `data_analysis_.ipynb` -- analyze mention time series.
 
