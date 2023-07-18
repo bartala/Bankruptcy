@@ -20,7 +20,7 @@ Studying bankruptcy events via social media coverage reveals varying attention p
 
 `read_data_from_spreadshreet.py` -- reads data from spreadsheet.
 
-`data_analysis.py` -- analyze mention time series.
+`data_analysis.R` -- analyze mention time series.
 
 `sentiment.py` -- analyze tweet sentiment.
 
