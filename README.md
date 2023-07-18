@@ -1,18 +1,18 @@
 # Persistence of Collective Memory
 
 ## Overview
-Collective memory and attention surrounding significant events have been quantitatively studied using large-scale social media data. 
-Previous studies typically analyzed user attention to static events that do not alter post-event (e.g., publishing a paper), and assume universal public attention.
-However, many significant events have ongoing updates. 
+Collective attention and memory involving significant events have been quantitatively studied using large-scale social media data. 
+Previous studies analyzed user attention to static events that do not change post-event (e.g., a celebrity's death), and assume universal public attention patterns.
+However, many significant events are dynamic, involving ongoing updates. 
 Additionally, individuals may exhibit different attention patterns.
-We investigate collective memory of U.S. companies that are active on Twitter and filed for Chapter 11 bankruptcy.
-As opposed to static events, a company's financial status under Chapter 11 bankruptcy is dynamic as the company continues to operate.
-These continuous updates can cause differing public attention over time to bankruptcy events.
+We investigate collective memory of U.S. companies that filed for Chapter 11 bankruptcy and were mentioned on Twitter.
+Unlike static events, a company's financial status under Chapter 11 bankruptcy is dynamic, as the company typically remains operational.
+These continuous updates can affect public attention over time following bankruptcy events.
 We collected 248,936 Twitter mentions of 74 companies one month before and after each bankruptcy event.
-Attention sharply spikes after bankruptcy, revealing High, or Low persistence level of attention compared with prior bankruptcy averaged  attention.
-We fit two bi-exponential models to the tweeting patterns of High, and Low attention levels.
-Additionally, we accurately (F1-score of 0.81) predicted the post-bankruptcy persistence level of public attention on the day of bankruptcy.
-Studying dynamic bankruptcy events reveals varying attention patterns, a novel perspective of collective memory, and how pre-bankruptcy attention shapes company remembrance.
+We observed a sharp spike in attention after bankruptcy, and Low or High persistence level of attention compared with attention level prior to bankruptcy.
+We fit two bi-exponential models to the tweeting patterns of Low and High attention levels.
+Importantly, we successfully (F1-score of 0.81) predicted the post-bankruptcy persistence level of public attention as of the day of bankruptcy.
+Studying bankruptcy events via social media coverage reveals varying attention patterns, informs how pre-bankruptcy attention shapes the remembrance of a company post-bankruptcy, and offers novel insights involving collective memory of dynamic events.
 
 ## Running the code
 
