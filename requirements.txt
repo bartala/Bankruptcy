@@ -29,3 +29,7 @@ rpy2==3.5.1
 pandas
 tweepy
 numpy
+json
+gzip
+re
+plotnine
