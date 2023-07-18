@@ -1,10 +1,4 @@
-
-!pip install vaderSentiment
-
-!pip uninstall rpy2 -y
-!pip install rpy2==3.5.1
-
-lib_loc <- "/content/drive/MyDrive/Colab Notebooks/r-lib"
+lib_loc <- "/library/dir/"
 
  library(RSQLite, lib.loc = lib_loc)
  library(proto, lib.loc = lib_loc)
