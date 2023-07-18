@@ -1,0 +1,31 @@
+
+# R requirements
+install.packages("data.table", lib =lib_loc)
+install.packages("ggpubr",lib =lib_loc)
+install.packages("DescTools", lib =lib_loc)
+install.packages("NbClust", lib =lib_loc)
+install.packages("factoextra", lib =lib_loc)
+install.packages("gsubfn", lib =lib_loc)
+install.packages("proto", lib =lib_loc)
+install.packages("ggplot2", lib =lib_loc)
+install.packages("RSQLite", lib =lib_loc)
+install.packages("sqldf", lib=lib_loc)
+install.packages("chron",lib= lib_loc)
+install.packages("minpack.lm", lib=lib_loc)
+install.packages("AICcmodavg", lib=lib_loc)
+install.packages("gridExtra",lib=lib_loc)
+install.packages("rsq", lib=lib_loc)
+install.packages("caret", lib=lib_loc)
+install.packages("zoo", lib=lib_loc)
+install.packages("KneeArrower", lib=lib_loc)
+install.packages("dplyr", lib=lib_loc)
+install.packages("nbclust", lib =lib_loc)
+install.packages("Ckmeans.1d.dp", lib =lib_loc)
+
+
+# Python requirements
+vaderSentiment
+rpy2==3.5.1
+pandas
+tweepy
+numpy
