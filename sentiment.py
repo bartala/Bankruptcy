@@ -1,13 +1,11 @@
 import pandas as pd
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
 
 # 8) Average tweet sentiment
 # Get the sentiment score of a text vector
 
 before = pd.read_csv(os.path.join(PTH,before.csv))
-
-from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
-
 analyzer = SentimentIntensityAnalyzer()
 
 sentiment_scores = []
