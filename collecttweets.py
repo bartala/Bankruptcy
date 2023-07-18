@@ -46,7 +46,7 @@ api = tweepy.API(auth, wait_on_rate_limit=True)
 
 def collect_tweets(company_user_name, S, E, fname):
   print(company_user_name)
-  filename = os.path.join(PTH,'data/All_chapter11_2020',fname+'_'+company_user_name+'.json.gz')
+  filename = os.path.join(PTH,'All_chapter11_2020',fname+'_'+company_user_name+'.json.gz')
   print(filename)
   for tweet in tweepy.Paginator(client.search_all_tweets,
                         query= '@'+ company_user_name +' lang:en',
@@ -107,7 +107,7 @@ df_users
 
 """### combine tweets"""
 
-PTH ='/content/drive/MyDrive/Colab Notebooks/BIU_HEB/data/All_chapter11_2020'
+PTH ='/path/to/data/All_chapter11_2020'
 
 companies = [
               'Aeromexico',
@@ -157,7 +157,7 @@ df.to_csv(os.path.join(PTH,'after_all_2020.csv'),index=False)
 
 """## Build the post-reply social network"""
 
-PTH ='/content/drive/MyDrive/Colab Notebooks/BIU_HEB/data/All_chapter11_2020'
+PTH ='/path/to/data/All_chapter11_2020'
 
 ## functions
 
@@ -241,7 +241,7 @@ activity_edges_before.to_csv(os.path.join(PTH,'activity_edges_after_All_chapter1
 
 """###  Statistics for BEFORE bankruptcy announcement"""
 
-PTH ='/content/drive/MyDrive/Colab Notebooks/BIU_HEB/data/All_chapter11_2020'
+PTH ='/path/to/data/All_chapter11_2020'
 
 # read the activity (RT, MT, RE) edges
 activity_edges_before = pd.read_csv(os.path.join(PTH,'activity_edges_before_All_chapter11_2020.csv'))
@@ -315,7 +315,7 @@ del df_bar_after
 """## Get followers ids of a user"""
 
 # load data
-PTH ='/content/drive/MyDrive/Colab Notebooks/BIU_HEB/data/All_chapter11_2020'
+PTH ='/path/to/data/All_chapter11_2020'
 
 activity_edges_before = pd.read_csv(os.path.join(PTH,'activity_edges_before_All_chapter11_2020.csv'))
 
