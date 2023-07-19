@@ -1,0 +1,83 @@
+Call:
+lm(formula = y ~ exp(x), data = Unforgotten)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-28.342 -16.444  -9.740   0.626 153.412 
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  5.161e+01  7.107e+00   7.262 5.37e-08 ***
+exp(x)      -1.223e-12  3.443e-12  -0.355    0.725    
+---
+Signif. codes:  0 `***' 0.001 `**' 0.01 `*' 0.05 `.' 0.1 ` ' 1
+
+Residual standard error: 38.16 on 29 degrees of freedom
+Multiple R-squared:  0.004334,	Adjusted R-squared:  -0.03 
+F-statistic: 0.1262 on 1 and 29 DF,  p-value: 0.7249
+
+
+Call:
+lm(formula = y ~ log(x + 0.01), data = Unforgotten)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-24.058 -13.031  -1.139   9.007  65.988 
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)     98.519      6.501   15.15 2.58e-15 ***
+log(x + 0.01)  -21.043      2.397   -8.78 1.16e-09 ***
+---
+Signif. codes:  0 `***' 0.001 `**' 0.01 `*' 0.05 `.' 0.1 ` ' 1
+
+Residual standard error: 20 on 29 degrees of freedom
+Multiple R-squared:  0.7267,	Adjusted R-squared:  0.7172 
+F-statistic: 77.09 on 1 and 29 DF,  p-value: 1.157e-09
+
+
+Formula: y ~ a/(1 + b * x)
+
+Parameters:
+    Estimate Std. Error t value Pr(>|t|)    
+a  2.050e+02  5.279e+01   3.883 0.000548 ***
+b -6.766e+07  9.283e+14   0.000 1.000000    
+---
+Signif. codes:  0 `***' 0.001 `**' 0.01 `*' 0.05 `.' 0.1 ` ' 1
+
+Residual standard error: 52.79 on 29 degrees of freedom
+
+Number of iterations to convergence: 37 
+Achieved convergence tolerance: 1.49e-08
+
+
+Formula: y ~ a1 * exp(-b1 * x) + a2 * exp(-b2 * x)
+
+Parameters:
+     Estimate Std. Error t value Pr(>|t|)    
+a1 183.475012  11.856218  15.475 6.04e-15 ***
+b1   0.548725   0.076340   7.188 9.91e-08 ***
+a2  28.612564   5.602989   5.107 2.29e-05 ***
+b2  -0.016299   0.009192  -1.773   0.0875 .  
+---
+Signif. codes:  0 `***' 0.001 `**' 0.01 `*' 0.05 `.' 0.1 ` ' 1
+
+Residual standard error: 11.76 on 27 degrees of freedom
+
+Number of iterations to convergence: 14 
+Achieved convergence tolerance: 1.49e-08
+
+
+Formula: y ~ a * (x + 1e-04)^(-b)
+
+Parameters:
+  Estimate Std. Error t value Pr(>|t|)    
+a 63.39833    4.51890   14.03 1.86e-14 ***
+b  0.13069    0.01152   11.34 3.51e-12 ***
+---
+Signif. codes:  0 `***' 0.001 `**' 0.01 `*' 0.05 `.' 0.1 ` ' 1
+
+Residual standard error: 21.69 on 29 degrees of freedom
+
+Number of iterations to convergence: 8 
+Achieved convergence tolerance: 2.716e-06

@@ -1,0 +1,17 @@
+Call:
+NULL
+
+Coefficients:
+                         Estimate Std. Error z value Pr(>|z|)   
+(Intercept)              2.349134   0.907483   2.589  0.00964 **
+avg_time_from_first     -0.231819   0.070656  -3.281  0.00103 **
+Pre_announcement_mean   -0.136948   0.065033  -2.106  0.03522 * 
+number_of_tweets_before  0.003665   0.001691   2.167  0.03025 * 
+---
+Signif. codes:  0 `***' 0.001 `**' 0.01 `*' 0.05 `.' 0.1 ` ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 84.473  on 64  degrees of freedom
+Residual deviance: 56.598  on 61  degrees of freedom
+AIC: 64.598

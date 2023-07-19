@@ -1,0 +1,235 @@
+\documentclass[9pt,twoside,lineno]{pnas-new}
+\UseRawInputEncoding
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{longtable}
+\renewcommand{\topfraction}{0.9}
+
+\lstset{
+basicstyle=\scriptsize\tt,
+}
+
+% Use the lineno option to display guide line numbers if required.
+
+\templatetype{pnassupportinginfo}
+
+\title{Collective Memory of Dynamic Events: Analyzing Persistence of Attention to Bankruptcy Events}
+\author{Kathleen M. Jagodnik, Sharon Dekel, Alon Bartal}
+\correspondingauthor{Alon Bartal.\\E-mail: alon.bartal@biu.ac.il}
+
+\begin{document}
+
+\maketitle
+
+
+\section*{Data}
+
+
+\begin{longtable}{llllllll}
+\caption{Companies analyzed in this study.}
+\label{tbl:companies}\\
+\hline
+\textbf{ID} & \textbf{Company}                                                                & \textbf{\begin{tabular}[c]{@{}l@{}}Twitter\\ Username\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Public/ \\Private\end{tabular}} & \textbf{Followers} & \textbf{Following} & \textbf{\begin{tabular}[c]{@{}l@{}}Bankruptcy\\ Date\end{tabular}} \\ \hline
+\endhead
+%
+\hline
+\endfoot
+%
+\endlastfoot
+%
+1           & A123 Systems                                                                     & A123Systems                                                         & Public           & 1844               & 185                & Oct. 16, 2012                                                                                                                      \\
+2           & Abengoa                                                                         & Abengoa                                                             & Public           & 19813              & 357            & Feb. 24, 2016                                                                                                                     \\
+3           & Aeropostale                                                                     & aeropostale                                                         & Public           & 515531             & 588             & May 4, 2016                                                                                                                           \\
+4           & Arch Coal                                                                       & archcoal                                                            & Public           & 3664               & 346             & Jan. 11, 2016                                                                                                                      \\
+5           & Armstrong Flooring                                                              & ArmstrongFloor                                                      & Public           & 10561              & 1089               & May 8, 2022                                                                                                                           \\
+6           & Avadel Pharmaceuticals                                                          & AvadelPharma                                                        & Public           & 1179               & 251                & Feb. 6, 2019                                                                                                                      \\
+7           & Avaya Holdings Corporation                                                      & Avaya                                                               & Private          & 38925              & 4690               & Jan. 19, 2017                                                                                                                      \\
+8           & Beauty Brands                                                                   & beautybrands                                                        & Private          & 8403               & 707                & Jan. 6, 2019                                                                                                                       \\
+9           & Belk                                                                            & belk                                                                & Private          & 96045              & 218                & Feb. 23, 2021                                                                                                                     \\
+10          & BioRestorative Therapies                                                  & BioRestorative                                                      & Public           & 1422               & 389                & Mar. 20, 2020                                                                                                                        \\
+11          & Brooks Brothers                                                                 & BrooksBrothers                                                      & Private          & 65444              & 197                & July 8, 2020                                                                                                                          \\
+12          & Carestream Health                                                               & Carestream                                                          & Private          & 11323              & 1864               & Aug. 23, 2022                                                                                                                       \\
+13          & Century 21 Stores                                                               & century21stores                                                     & Private          & 14128              & 7947               & Sep. 10, 2020                                                                                                                    \\
+14          & Charlotte Russe                                                                 & CharlotteRusse                                                      & Private          & 72100              & 9438               & Feb. 4, 2019                                                                                                                      \\
+%15          & Charming Charlie                                                                & CharmingCharlie                                                     & Public           & 28500              & 148                & Jun. 27, 2019                                                                                                                         \\
+15          & Chuck E. Cheese                                                                 & ChuckECheese                                                        & Private          & 46105              & 415                & Jun. 25, 2020                                                                                                                         \\
+16          & Cineworld Group                                                                 & cineworld                                                           & Public           & 303261             & 16975              & Sep. 7, 2022                                                                                                                     \\
+17          & Claire's Holdings LLC                                                           & claires                                                             & Private          & 65400              & 225                & Mar. 19, 2018                                                                                                                        \\
+18          & Clovis Oncology, Inc.                                                           & ClovisOncology                                                      & Public           & 1121               & 4                  & Dec. 11, 2022                                                                                                                     \\
+19          & Cobalt International Energy                                                     & cobaltpowergrp                                                      & Public           & 223                & 498                & Dec. 14, 2017                                                                                                                     \\
+20          & Cumulus Media                                                                   & CumulusMedia                                                        & Public           & 5472               & 1146               & Nov. 29, 2017                                                                                                                     \\
+21          & Dean \& DeLuca                                                                  & DeanAndDeLuca                                                       & Private          & 20044              & 1990               & Mar. 31, 2020                                                                                                                        \\
+22          & Dendreon                                                                        & DendreonNews                                                        & Public           & 2539               & 1006               & Nov. 10, 2014                                                                                                                     \\
+23          & Diesel S.p.A.                                                                   & DIESEL                                                              & Private          & 179000             & 737                & Mar. 5, 2019                                                                                                                         \\
+24          & ECOtality                                                                       & ECOtality                                                           & Public           & 2088               & 828                & Sep. 16, 2013                                                                                                                    \\
+25          & Elizabeth Arden, Inc.                                                           & ElizabethArden                                                      & Public           & 84859              & 2295               & Jun. 15, 2022                                                                                                                         \\
+26          & Energy Future Holdings                                                          & EFCoalition                                                         & Private          & 737                & 925                & Apr.29, 2014                                                                                                                        \\
+27          & Ezra Holdings Ltd.                                                              & EMAS\_offshore                                                      & Public           & 1071               & 470                & Mar. 18, 2017                                                                                                                        \\
+28          & Ferrellgas Partners LP                                                          & Ferrellgas                                                          & Private          & 1913               & 163                & Jan. 11, 2021                                                                                                                      \\
+29          & Forever 21                                                                      & Forever21                                                           & Private          & 1900000            & 351                & Sep. 29, 2019                                                                                                                    \\
+30          & Francesca's Holdings Corporation     & francescas                                                          & Public           & 14802              & 1145               & Dec. 3, 2020                                                                                                                      \\
+31          & FTD / FTD Flowers                                                               & ftdflowers                                                          & Private          & 12800              & 21                 & Jun. 3, 2019                                                                                                                          \\
+%32          & Garuda Indonesia                                                                & IndonesiaGaruda                                                     & Public           & 3418946            & 874                & Sep. 26, 2022                                                 & 15                                                                    \\
+32          & GNC Holdings, Inc.                                                              & GNCLiveWell                                                         & Public           & 187956             & 3972               & Jun. 23, 2020                                                                                                                         \\
+33          & Gold's Gym                                                                      & GoldsGym                                                            & Private          & 108910             & 498                & May 4, 2020                                                                                                                           \\
+34          & Golfsmith                                                                       & Golfsmith                                                           & Private          & 16779              & 556             & Sep. 14, 2016                                                                                                                    \\
+35          & Guitar Center                                                                   & guitarcenter                                                        & Private          & 226845             & 2135               & Nov. 21, 2020                                                                                                                     \\
+36          & Gulfport Energy Corporation                                                     & EnergyGulfport                                                      & Public           & 146                & 20                 & Nov. 13, 2020                                                                                                                     \\
+%39          &Helios \& Matheson Analytics  & HMNYHQ1                                                             & Public           & 33117              & 496                & Jan. 28, 2020                                                   & 7                                                                     \\
+37          & Hertz Global Holdings, Inc.         & Hertz                                                               & Public           & 75694              & 32589              & May 22, 2020                                                                                                                          \\
+38          & HHGregg                                                                         & hhgregg                                                             & Public           & 31800              & 900                & Mar. 6, 2017                                                                                                                         \\
+39          & Houghton Mifflin Harcourt                                                       & HMHCo                                                               & Private          & 18203              & 2928               & May 21, 2012                                                                                                                          \\
+40          & IHeartMedia, Inc.                                                               & iHeartMedia                                                         & Public           & 23588              & 820                & Mar. 14, 2018                                                                                                                        \\
+41          & Indiana Toll Road Concession Company                                                              & IndianaTollRoad                                                     & Private          & 5100               & 131                & Sep. 21, 2014                                                                                                                    \\
+42          & J. Crew                                                                         & jcrew                                                               & Private          & 326482             & 987                & May 4, 2020                                                                                                                           \\
+43          & J.C. Penney                                                                     & jcpenney                                                            & Public           & 421867             & 63                 & May 15, 2020                                                                                                                          \\
+44          & Kiko Milano USA                                                                 & KikoMilanoUSA                                                       & Private          & 4270               & 47                 & Jan. 11, 2018                                                                                                                      \\
+45          & Kodak                                                                           & Kodak                                                               & Public           & 72785              & 1                  & Jan. 19, 2012                                                                                                                      \\
+46          & Linn Energy                                                                     & linnenergy                                                          & Public           & 1914               & 89              & May 11, 2016                                                                                                                          \\
+47          & Loot Crate                                                                      & lootcrate                                                           & Private          & 455892             & 4809               & Aug. 11, 2019                                                                                                                       \\
+48          & Lord \& Taylor                                                                  & lordandtaylor                                                       & Private          & 60844              & 897                & Aug. 2, 2020                                                                                                                        \\
+%52          & Luckin Coffee                                                                   & LuckinCoffee                                                        & Public           & 31                 & 0                  & Feb. 5, 2021                                                   & 15                                                                    \\
+49          & Lucky Brand                                                                     & LuckyBrand                                                          & Private          & 22882              & 1527               & July 3, 2020                                                                                                                          \\
+%54          & Mad Catz                                                                        & MadCatz                                                             & Public           & 62392              & 1558               & Mar. 30, 2017                                                     & 7                                                                     \\
+50          & Marie Callender's                                                               & MarieCallenders                                                     & Private          & 4397               & 1543               & Jun. 13, 2011                                                                                                                         \\
+51          & Mattress Firm Holding Corp.          & MattressFirm                                                        & Private          & 47200              & 554                & Oct. 5, 2018                                                                                                                       \\
+52          & Modell's Sporting Goods                                                         & Modells                                                             & Private          & 21717              & 5225               & Mar. 11, 2020                                                                                                                        \\
+53          & Momentive Performance Materials Inc. & Momentive                                                           & Private          & 1300               & 35                 & Apr.13, 2014                                                                                                                        \\
+54          & Mt. Gox                                                                         & MtGox                                                               & Private          & 22200              & 1               & Feb. 28, 2014                                                                                                                     \\
+55          & MusclePharm                                                                     & MusclePharm                                                         & Public           & 309707             & 29                 & Dec. 15, 2022                                                                                                                     \\
+56          & Neiman Marcus                                                                   & neimanmarcus                                                        & Private          & 355716             & 1601               & May 7, 2020                                                                                                                           \\
+57          & Nine West Holdings Inc.                                                         & NineWest                                                            & Private          & 45400              & 387                & Apr.6, 2018                                                                                                                         \\
+58          & Peabody Energy                                                                  & peabodyenergy                                                       & Public           & 9184               & 709                & Apr.13, 2016                                                                                                                        \\
+59          & Perfumania Holdings, Inc.                                                       & Perfumania                                                          & Public           & 19000              & 159                & Aug. 26, 2017                                                                                                                       \\
+60          & Philippine Airlines                                                             & flyPAL                                                              & Public          & 2985854            & 1                  & Sep. 4, 2021                                                                                                                     \\
+61          & Pier 1 Imports                                                                  & pier1                                                               & Public           & 105976             & 1253               & Feb. 17, 2020                                                                                                                     \\
+62          & Pyxus International, Inc.                                                       & PyxusIntl                                                           & Public           & 643                & 29                 & Jun. 15, 2020                                                                                                                         \\
+63          & Republic Airways                                                                & RepublicAirways                                                     & Private          & 4597               & 234            & Feb. 25, 2016                                                                                                                     \\
+64          & Revlon, Inc.                                                                    & revlon                                                              & Public           & 454428             & 512                & Jun. 15, 2022                                                                                                                         \\
+%70          & RGS Energy                                                                      & RealGoods                                                           & Public           & 710                & 911                & Feb. 14, 2020                                                  & 7                                                                     \\
+65          & Rockport                                                                        & Rockport                                                            & Private          & 6294               & 940                & May 14, 2018                                                                                                                          \\
+66          & Rue21, Inc.                                                                     & rue21                                                               & Private          & 32400              & 1091               & May 16, 2017                                                                                                                          \\
+%73          & Scandinavian Airlines                                                           & SAS                                                                 & Public           & 127960             & 117                & July 15, 2022                                                                                                                         \\
+67          & Sears Holdings Corp.                                                            & Sears                                                               & Public           & 198100             & 9293               & Oct. 15, 2018                                                                                                                      \\
+68          & Stein Mart                                                                      & steinmart                                                           & Public           & 5882               & 1188               & Aug. 12, 2020                                                                                                                       \\
+69          & Sugarfina                                                                       & sugarfina                                                           & Private          & 22300              & 172                & Sep. 6, 2019                                                                                                                     \\
+70          & SunEdison                                                                       & SunEdison                                                           & Public           & 13246              & 5195           & Apr.21, 2016                                                                                                                        \\
+%78          & Suntech Power Holdings Co.                                                      & Suntech\_Connect                                                    & Public           & 2990               & 781            & Feb. 21, 2014                                                  & 15                                                                    \\
+71          & TerraVia Holdings, Inc.                                                         & terravia                                                            & Public           & 466                & 101                & Aug. 2, 2017                                                                                                                        \\
+72          & True Religion       & TrueReligion                                                        & Private          & 43803              & 189                & July 5, 2017                                                                                                                          \\
+73          & Verso Corporation                                                               & verso\_group                                                        & Public           & 142                & 183             & Jan. 26, 2016                                                                                                                      \\
+74          & Voyager Digital Ltd.                                                            & investvoyager                                                       & Public           & 163996             & 1151               & July 6, 2022                                                                                                                          \\ \hline
+\end{longtable}
+
+%----------------------------------------------------------------------------------------
+\section*{Methods}
+\label{sec:SI_methods}
+%----------------------------------------------------------------------------------------
+\subsection*{Identify and remove outliers}
+In R, the \texttt{boxplot} function uses the ``1.5 x IQR'' rule to identify and remove outliers. This rule defines an outlier as any observation that falls more than 1.5 times the interquartile range (IQR) below the first quartile (Q1) or above the third quartile (Q3) of the data.
+In more detail, the function first calculates the median of the data (the horizontal line inside the box).
+Then, the function calculates the first and third quartiles of the data (the lower and upper edges of the box, respectively).
+The function calculates the interquartile range (IQR), which is the difference between the third and first quartiles.
+The function extends ``whiskers'' from the box to the highest and lowest data points that are within 1.5 times the IQR of the box. These whiskers are represented by the vertical lines outside the box.
+Any data points that fall outside the whiskers are considered outliers.
+To remove outliers from the data, we use the boxplot `out' output (outliers) to filter the data.
+
+%----------------------------------------------------------------------------------------
+\section*{Long-term Boost Histogram}
+%----------------------------------------------------------------------------------------
+\begin{figure}[H]
+\center
+    \includegraphics[scale=.5,trim={0cm 0cm 0cm 1.4cm},clip]{images/histogram_Long-term boost.pdf}
+    \caption{  Distribution of Long-term Boost.}
+    \label{SI_fig:Long_term}
+\end{figure}
+
+
+%----------------------------------------------------------------------------------------
+\section*{Companies with Low or High Level of Persistent Bankruptcy Memory on Twitter}
+%----------------------------------------------------------------------------------------
+\begin{figure*}[h]
+  \centering
+  \begin{subfigure}[b]{0.45\textwidth}
+     \includegraphics[scale=.5,trim={0cm 0cm 0cm 1.1cm},clip]{images/SI_Low_persistence.pdf}
+    \caption{Companies with Low level of persistent bankruptcy memory on Twitter.}
+    \label{fig:sub1}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.45\textwidth}
+    \includegraphics[scale=.5,trim={0cm 0cm 0cm 1.1cm},clip]{images/SI_High_persistence.pdf}
+    \caption{Companies with High level of persistent bankruptcy memory on Twitter.}
+    \label{fig:sub2}
+  \end{subfigure}
+  \caption{
+           Companies with (a) Low or (b) High persistence level of memory ordered by the difference between the average number of mentions before and after bankruptcy.
+           For the `After' period, we calculated the average number of mentions in the Long-term period.
+           For the `Before' period, we calculated the average daily mentions before bankruptcy announcement (i.e., the Pre-Announcement Mean).
+  }
+  \label{SI_fig:high_low}
+\end{figure*}
+
+
+%----------------------------------------------------------------------------------------
+\section*{Memory Model Fitting}
+\label{sec:SI_model_fit}
+%----------------------------------------------------------------------------------------
+We fit five models (Biexponential, Exponential, Hyperbolic, Logarithmic, and Power) for companies in each memory persistence level (Low and High); in total, we fit 10 models.
+
+\section*{R Code for Model Fitting for Low Level of Persistence Memory about Bankruptcy Events}
+\lstinputlisting{Low_output.txt}
+
+\section*{R Code for Model Fitting for High Level of Persistence Memory about Bankruptcy Events}
+\lstinputlisting{High_output.txt}
+
+%----------------------------------------------------------------
+\section*{Persistence Prediction}
+%----------------------------------------------------------------
+\textbf{Logistic regression summary}
+\lstinputlisting{Logistic_reg.txt}
+
+\textbf{Model performance}
+\lstinputlisting{model_performance.txt}
+
+
+
+%----------------------------------------------------------------------------------------
+\section*{Sentiment Analysis}
+%----------------------------------------------------------------------------------------
+
+\begin{figure*}[h]
+  \centering
+  \begin{subfigure}[b]{0.45\textwidth}
+     \includegraphics[scale=.5,trim={0cm 0cm 0cm 1.4cm},clip]{images/Low_Sentiment_Boxplot.pdf}
+    \caption{Sentiment of Low persistent memory of bankruptcy event.}
+    \label{fig:low_box}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.45\textwidth}
+    \includegraphics[scale=.5,trim={0cm 0cm 0cm 1.4cm},clip]{images/High_Sentiment_Boxplot.pdf}
+    \caption{Sentiment of High persistent memory of bankruptcy event.}
+    \label{fig:high_box}
+  \end{subfigure}
+  \caption{
+           Boxplots of sentiment before and after bankruptcy announcement in (a) Low and (b) High memory persistence level.
+           For Low and High persistence, we present the positive (Pos), negative (Neg), neutral (Neu), and the overall (All) compound score metric that calculates the sum of all the lexicon ratings (Pos, Neg, and Neu) that have been normalized between -1 (most extreme negative) and +1 (most extreme positive).
+            For events with Low persistence (Fig. \ref{fig:low_box}), we find significant differences in sentiments before vs. after bankruptcy for Pos, Neg, and All (pairwise Wilcoxon tests, P-values $= 5.921e^{-4}, 0.018,$ and $0.001$, respectively).
+            Neutral sentiment before vs. after bankruptcy was found insignificant for Low-persistence events.
+            For events with High persistence (Fig. \ref{fig:high_box}) we find significant differences in sentiments before vs. after bankruptcy for Pos, Neg, Neu, and All (P-value $=3.039e^{-6}, 3.297e^{-5}, 0.012$, and $ 4.832e^{-8}$), respectively.
+            Additionally, we computed the percentile change (denoted $\delta$) of Neg sentiment before vs. after bankruptcy for both Low and High persistent levels.
+            For Neg sentiment, the $\delta$ of High-persistence memory is significantly lower (p-value = $8.038e^{-9}$) than the $\delta$ of Low-persistence memory.
+            For Neu sentiment, the $\delta$ of High-persistence memory is significantly higher (p-value = $1.768e^{-6}$) than the $\delta$ of Low-persistence memory.
+            Hence, the percentile change for High-persistence memory is higher for Neu and lower for Neg sentiment compared with Low-persistence memory.
+  }
+  \label{SI_fig:boxplots_sentiment}
+\end{figure*}
+
+
+
+\FloatBarrier
+
+%\bibliography{pnas-sample}
+
+\end{document}

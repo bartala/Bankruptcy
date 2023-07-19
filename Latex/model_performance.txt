@@ -1,0 +1,67 @@
+# -----------  10-fold Cross Validation ---------------
+Confusion Matrix and Statistics
+
+          Reference
+Prediction  0  1
+         0 39  8
+         1  3 15
+                                          
+               Accuracy : 0.8308          
+                 95% CI : (0.7173, 0.9124)
+    No Information Rate : 0.6462          
+    P-Value [Acc > NIR] : 0.0008541       
+                                          
+                  Kappa : 0.6108          
+                                          
+ Mcnemar's Test P-Value : 0.2278000       
+                                          
+            Sensitivity : 0.9286          
+            Specificity : 0.6522          
+         Pos Pred Value : 0.8298          
+         Neg Pred Value : 0.8333          
+              Precision : 0.8298          
+                 Recall : 0.9286          
+                     F1 : 0.8764          
+             Prevalence : 0.6462          
+         Detection Rate : 0.6000          
+   Detection Prevalence : 0.7231          
+      Balanced Accuracy : 0.7904          
+                                          
+       'Positive' Class : 0
+
+
+
+# -----------  Evaluation over the Test set ---------------
+
+
+
+Confusion Matrix and Statistics
+
+          Reference
+Prediction  0  1
+         0 13  4
+         1  2  4
+                                          
+               Accuracy : 0.7391          
+                 95% CI : (0.5159, 0.8977)
+    No Information Rate : 0.6522          
+    P-Value [Acc > NIR] : 0.2604          
+                                          
+                  Kappa : 0.3894          
+                                          
+ Mcnemar's Test P-Value : 0.6831          
+                                          
+            Sensitivity : 0.8667          
+            Specificity : 0.5000          
+         Pos Pred Value : 0.7647          
+         Neg Pred Value : 0.6667          
+              Precision : 0.7647          
+                 Recall : 0.8667          
+                     F1 : 0.8125          
+             Prevalence : 0.6522          
+         Detection Rate : 0.5652          
+   Detection Prevalence : 0.7391          
+      Balanced Accuracy : 0.6833          
+                                          
+       'Positive' Class : 0               
+                                 
