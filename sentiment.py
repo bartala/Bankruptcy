@@ -1,6 +1,7 @@
 import pandas as pd
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 import re
+import os
 from textblob import TextBlob
 
 # 8) Average tweet sentiment (see data_analysis.R)
