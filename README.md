@@ -35,7 +35,7 @@ If you find this code useful for your research, please consider citing us:
 ```
 @article{Jagodnik2023,
   title     = {Collective Memory of Dynamic Events: Analyzing Persistence of Attention to Bankruptcy Events},
-  author    = {Jagodnik, Kathleen M., Dekel, Sharon, and Bartal, Alon},
+  author    = {Jagodnik, Kathleen M., and Dekel, Sharon and Bartal, Alon},
   journal   = {},
   volume    = {},
   number    = {},
