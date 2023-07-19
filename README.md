@@ -1,4 +1,4 @@
-# Persistence of Collective Memory
+# Collective Memory of Dynamic Events
 
 ## Overview
 Collective attention and memory involving significant events have been quantitatively studied using large-scale social media data. 
