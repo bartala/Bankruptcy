@@ -24,6 +24,8 @@ Studying bankruptcy events via social media coverage reveals varying attention p
 
 `sentiment.py` -- analyze tweet sentiment.
 
+`requirements.txt` - R and Python libraries required to run the code of this study.
+
 ## Miscellaneous
 Please send any questions you might have about the code and/or the algorithm to alon.bartal@biu.ac.il.
 
