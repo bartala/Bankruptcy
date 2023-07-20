@@ -44,14 +44,14 @@
 
 % Use letters for affiliations, numbers to show equal authorship (if applicable) and to indicate the corresponding author
 \author[a,b,c,1]{Kathleen M. Jagodnik}
-\author[b,c]{Sharon Dekel}
-\author[a]{Alon Bartal} 
+\author[a,b]{Sharon Dekel}
+\author[c]{Alon Bartal} 
 
-\affil[a] {The School of Business Administration, Bar-Ilan University, Ramat Gan, 5290002, Israel}
+\affil[a] {Department of Psychiatry, Harvard Medical School, Boston, Massachusetts, USA}
 
-\affil[b] {Department of Psychiatry, Harvard Medical School, Boston, Massachusetts, USA}
+\affil[b] {Department of Psychiatry, Massachusetts General Hospital, Boston, Massachusetts, USA}
 
-\affil[c] {Department of Psychiatry, Massachusetts General Hospital, Boston, Massachusetts, USA}
+\affil[c] {The School of Business Administration, Bar-Ilan University, Ramat Gan, 5290002, Israel}
 
 
 % Please give the surname of the lead author for the running footer
@@ -59,10 +59,10 @@
 
 % Please add a significance statement to explain the relevance of your work
 \significancestatement{Little is known about the persistence of collective memory of dynamic events.
-Previous research analyzed collective memory of static events that do not change after occurring (e.g., celebrity deaths).
+Previous research analyzed collective memory of discrete events that do not change after occurring (e.g., celebrity deaths).
 Extending that research, we analyzed collective memory of U.S. companies that declared Chapter 11 bankruptcy, involving dynamic, persistent post-bankruptcy company status.
 Analyzing Twitter posts mentioning companies before and after bankruptcy announcement, we observe intense attention following the announcement, with varying levels of memory persistence.
-Assessing systematic differences in how bankrupt companies persist in memory, we successfully predicted the post-bankruptcy persistence level based on pre-bankruptcy Twitter posting behavior. 
+Assessing systematic differences in how bankrupt companies persist in memory, we successfully predicted the post-bankruptcy persistence level based on pre-bankruptcy user posting behavior. 
 We emphasize the impact of pre-bankruptcy attention on how a company remains in public attention, offering valuable insights for financial and media stakeholders.
 }
 
@@ -73,20 +73,20 @@ We emphasize the impact of pre-bankruptcy attention on how a company remains in 
 \correspondingauthor{\textsuperscript{1}Corresponding author E-mail: kjagodnik@mgh.harvard.edu}
 
 % At least three keywords are required at submission. Please provide three to five keywords, separated by the pipe symbol.
-\keywords{bankruptcy $|$ collective attention $|$ memory of dynamic events $|$ social media}
+\keywords{bankruptcy $|$ collective memory $|$  dynamic events $|$ public attention $|$ social media}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% abstract %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
 Collective attention and memory involving significant events have been quantitatively studied using large-scale social media data. 
-Previous studies analyzed user attention to static events that do not change post-event (e.g., a celebrity's death), and assume universal public attention patterns.
+Previous studies analyzed user attention to discrete events that do not change post-event (e.g., a celebrity's death), and assume universal public attention patterns.
 However, many significant events are dynamic, involving ongoing updates. 
 Additionally, individuals may exhibit different attention patterns.
 We investigate collective memory of U.S. companies that filed for Chapter 11 bankruptcy and were mentioned on Twitter.
-Unlike static events, a company's financial status under Chapter 11 bankruptcy is dynamic, as the company typically remains operational.
+Unlike discrete events, a company's financial status under Chapter 11 bankruptcy is dynamic, as the company typically remains operational.
 These continuous updates can affect public attention over time following bankruptcy events.
 We collected 248,936 Twitter mentions of 74 companies one month before and after each bankruptcy event.
-We observed a sharp spike in attention after bankruptcy, and identify Low or High persistence level of attention compared with attention level prior to bankruptcy.
+We observed a sharp spike in attention after bankruptcy, and identified Low or High persistence level of attention compared with attention level prior to bankruptcy.
 We fit two bi-exponential models to the tweeting patterns of Low and High attention levels.
 Importantly, we successfully (F1-score of 0.81) predicted the post-bankruptcy persistence level of public attention as of the day of bankruptcy.
 Studying bankruptcy events via social media coverage reveals varying attention patterns, informs how pre-bankruptcy attention shapes the remembrance of a company post-bankruptcy, and offers novel insights involving collective memory of dynamic events.
@@ -117,8 +117,15 @@ Psychologists have studied top-down and bottom-up approaches to memory formation
 Top-down approaches examine how familiarity, narrative templates, and cultural attractors such as children's songs \cite{rubin1995memory} contribute to the persistence of collective memory \cite{rubin1995memory,buskell2017cultural,roediger2016recognizing}.
 Bottom-up approaches largely focus on retrieval-induced forgetting and the mnemonic power of social affinities \cite{hirst2018collective, coman2015social}.
 
-Computational social scientists have studied collective memory by analyzing attention to cultural products such as movies, songs, Wikipedia page views, and academic paper citations \cite{yu2016pantheon, candia2019universal, west2021postmortem, jara2019medium, higham2017fame}. 
+Computational social scientists have studied the expression of collective memory via  attention to cultural products by, for example, measuring the number of discussions on movies, songs, number of page views on Wikipedia, and citations of academic papers \cite{yu2016pantheon, candia2019universal, west2021postmortem, jara2019medium, higham2017fame}. 
+These measures do not directly capture collective memory; they serve as indicators of public attention spillovers that often result in online searches and discussions \cite{candia2019universal}.
 Cultural products initially receive high attention close to their release (communicative memory), which diminishes over time to cultural memory level \cite{west2021postmortem, candia2019universal}.
+In simple words, when a cultural product becomes popular, people widely talk about it (high attention).
+This heightened interest makes individuals more likely to remember a product.
+When a cultural product moves away from communicative memory, it loses this intense attention.
+Hence, attention has a vital role in the formation and dissemination of collective memory \cite{candia2019universal}.
+The computational approach aligns closely with Jan Assmann's \cite{assmann2011communicative} definition of collective memory, which focuses on the cultural products remembered by communities or groups of people.
+We follow the computational social science approach to study collective  memories of significant events by analyzing cultural consumption of information expressed by attention. 
 
 Memories of significant events often vary between individuals \cite{mena2016forgetting}. 
 Analyzing significant corporate irresponsibility events (e.g., bankruptcy) showed that some events do not persist in collective memory \cite{crane2013modern,fig2005manufacturing}.
@@ -166,7 +173,7 @@ The shifted power-law function ($C_1t^{-\alpha} + C_2$) extends the bi-exponenti
 % Gaps
 Despite recent progress, the theory of collective memory and persistence of public attention lacks quantitative models that analyze empirical data.
 Earlier studies on collective memory mainly focused on events such as publishing a new song, movie, or paper; as well as events documented in Wikipedia, such as natural and human-generated disasters, accidents, terrorism attacks, anniversaries, or commemorative events \cite{yu2016pantheon, candia2019universal, west2021postmortem, jara2019medium, higham2017fame,garcia2017memory}.
-These events are \textit{static} in the sense that they are unalterable after taking place.
+These events are \textit{discrete} in the sense that they are unalterable after taking place.
 We extend previous work by analyzing \textit{dynamic} events of bankrupt companies that remain operational and continue to evolve financially following bankruptcy.
 Previous studies have also largely assumed that the persistence level of attention to an event is similar across individuals \cite{candia2019universal, igarashi2022two, west2021postmortem}.
 However, memories of a past event often differ among individuals \cite{mena2016forgetting}, implying different attention levels.
@@ -384,7 +391,7 @@ When we used the Test set, our model yielded F1-score of 0.81 for identifying ev
 \label{sec:discussion}
 %===============================================================
 Many studies of collective memory are bound by 
-(i) modeling attention to static events that are unalterable after they occur; and
+(i) modeling attention to discrete events that are unalterable after they occur; and
 (ii) assuming that similar events follow a universal decaying function of communicative memory, measured via the assumption of universal attention patterns to an event, which is not true.
 %(i)
 To overcome these gaps, we analyzed user attention on Twitter to dynamic bankruptcy events, accounting for differences in attention patterns.
