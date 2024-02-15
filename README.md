@@ -34,11 +34,11 @@ Please send any questions you might have about the code and/or the algorithm to 
 If you find this code useful for your research, please consider citing us:
 ```
 @article{Jagodnik2023,
-  title     = {Collective Memory of Dynamic Events: Analyzing Persistence of Attention to Bankruptcy Events},
+  title     = {Persistence of Collective Memory of Corporate Bankruptcy Events Discussed on X (Twitter) is Influenced by Pre-Bankruptcy Public Attention},
   author    = {Jagodnik, Kathleen M., and Dekel, Sharon and Bartal, Alon},
-  journal   = {},
+  journal   = {Scientific Reports},
   volume    = {},
   number    = {},
   pages     = {from page– to page},
-  year      = {2023}
+  year      = {2024}
 }
