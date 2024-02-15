@@ -33,7 +33,7 @@ Please send any questions you might have about the code and/or the algorithm to 
 ## Citing
 If you find this code useful for your research, please consider citing us:
 ```
-@article{Jagodnik2023,
+@article{Jagodnik2024,
   title     = {Persistence of Collective Memory of Corporate Bankruptcy Events Discussed on X (Twitter) is Influenced by Pre-Bankruptcy Public Attention},
   author    = {Jagodnik, Kathleen M., and Dekel, Sharon and Bartal, Alon},
   journal   = {Scientific Reports},
