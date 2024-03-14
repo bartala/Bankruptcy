@@ -24,12 +24,12 @@ install.packages("Ckmeans.1d.dp", lib =lib_loc)
 
 
 # Python requirements
-vaderSentiment
+vaderSentiment==2.0.1
 rpy2==3.5.1
-pandas
-tweepy
-numpy
-json
-gzip
-re
-plotnine
+pandas==1.3.5
+tweepy==4.1.0
+numpy==1.21.5
+json==2.0.9
+gzip==1.10
+re==2.2.1
+plotnine==0.8.0
